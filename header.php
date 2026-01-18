@@ -31,13 +31,13 @@
 					<img src="<?php the_field('site_logo','option');?>" alt="">
 				</a>
             </div>
-		   <div class="menu-trigger d-lg-none">
+		   <div class="menu-trigger d-md-none">
 			   <span></span>
 			   <span></span>
 			   <span></span>
 		   </div>
              <!-- Menu Item -->
-			  <div class="main-menu d-none d-lg-block">
+			  <div class="main-menu d-none d-md-block">
 				  <?php
 					wp_nav_menu( array(
 						'theme_location'    => 'mainMenu',
@@ -47,7 +47,7 @@
 					?>
 			    </div>
 				<!-- Header Right Item -->
-			 <div class="header-right d-none d-lg-block">
+			 <div class="header-right d-none d-md-block">
 				<a class="site-btn" href="<?php the_field('button_link','option');?>" ><?php the_field('button_title','option');?></a>
 			</div>
 		</div> 
@@ -55,7 +55,7 @@
 <!-- Header Section End -->
 
 <!-- Hamburger Menu Start -->
-	<div class="hamburger-menu-wrapper d-lg-none">
+	<div class="hamburger-menu-wrapper d-md-none">
 		<div class="hamburger-menu-inner">
 			<div class="menu-close">
 				 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/close.svg" alt="">

@@ -51,12 +51,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .header-right .site-btn {
 	background-color: var(--arcia-primary);
 	padding: 12px 14px;
-	line-height: 100%;
+	line-height: normal;
 }
 .header-right .site-btn:hover {
 	background-color: var(--arcia-secondary);
 }
-@media only screen and (max-width:991px) {
+
+@media only screen and (max-width:767px) {
 /* Mobile Responsive Css */
 .menu-trigger{
 	cursor: pointer;
@@ -137,8 +138,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .hamburger-footer {
 	margin-top: 40px;
 }
-}
-@media only screen and (max-width:767px) {
  .hamburger-menu-inner {
 	max-width: 90%;
 }
@@ -230,6 +229,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .hero-contents {
 	max-width: 38.75rem;
 }
+.site-branding .site-logo {
+	padding: 8px 0;
+}
 }
 @media only screen and (max-width: 767px) {
 .hero-contents h1 {
@@ -279,10 +281,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	margin-top: 100px;
 }
 }
-
-
-
-
 .sec_subtitle {
 	color: var(--arcia-primary);
 	font-size: 1.5rem;
@@ -369,33 +367,39 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .services-section .section-title h2 {
   margin-top: 1.25rem;
 }
-.post-boxes {
+.service-boxes {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	column-gap: 1.25rem;
 	row-gap: 2.5rem;
 	margin-top: 2.188rem;
 }
-.post-box {
+.service-box {
   display: grid;
   grid-template-columns: 100%;
+}
+.service-thumb {
   position: relative;
 }
-.post-box:after {
+.service-thumb img {
+	width: 100%;
+}
+.service-thumb:after {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
- background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%); 
+  z-index: 2;
 }
-.post-box h3, 
-.post-box .post-thumb {
+.service-box h3, 
+.service-box .service-thumb {
   grid-row: 1;
   grid-column: 1;
 }
-.post-box h3 {
+.service-box h3 {
 	font-size: 1.5rem;
 	color: var(--white);
 	align-self: flex-end;
@@ -403,22 +407,24 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	padding: 40px 30px;
 	text-align: center;
 	transition: 0.3s all ease;
+	position: relative;
+	z-index: 3;
 }
-.post-box:hover h3 {
+.service-box:hover h3 {
   padding-bottom: 100px;
 }
 @media only screen and (max-width: 1300px) {
-.post-box h3 {
+.service-box h3 {
 	padding: 40px 15px;
 }
 }
 @media only screen and (max-width: 1199px) {
-.post-box h3 {
+.service-box h3 {
 	font-size: 1.4rem;
 }
 }
 @media only screen and (max-width: 991px) {
-.post-boxes {
+.service-boxes {
 	grid-template-columns: repeat(3, 1fr);
 	row-gap: 2rem;
 }
@@ -427,12 +433,332 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 }
 @media only screen and (max-width: 767px) {
-	.post-boxes {
+	.service-boxes {
 		grid-template-columns: repeat(1, 1fr);
 		row-gap: 1rem;
 	}
 }
 /* Services Css End */
+
+
+/* Testimonial Css Start */
+.testimonials-inner {
+	display: grid;
+	grid-template-columns: 100%;
+	justify-items: end;
+}
+.testimonials-image, 
+.testimonials-contents {
+	grid-row: 1; 
+	grid-column: 1;
+}
+.testimonials-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.testimonials-contents {
+	align-self: center;
+	max-width: 1000px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.testimonilas-info h4 {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 100%;
+}
+.testimonial-title {
+  color: var(--white);
+  font-size: 4rem;
+  line-height: 130%;
+  font-weight: 700;
+  margin-top: 1.5rem;
+}
+.testimonials-contents p {
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 150%;
+  margin-top: 1.75rem;
+}
+.testimonilas-info {
+  margin-top: 1.75rem;
+}
+.testimonial-thumb-boxes {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.testimonial-thumb-image {
+  display: flex;
+  column-gap: 1rem;
+}
+.testimonial-thumb-image img {
+	width: 71px;
+	height: 72px;
+}
+.testimonial-btn a {
+  color: #0A4181;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 100%;
+}
+@media only screen and (max-width: 1400px) {
+.testimonials-contents {
+	max-width: 43.75rem;
+}
+}
+@media only screen and (max-width: 1200px) {
+.testimonials-contents {
+	max-width: 37.5rem;
+}
+.testimonial-title {
+	font-size: 3rem;
+}
+}
+@media only screen and (max-width: 991px) {
+.testimonial-title {
+	font-size: 2.2rem;
+}
+.testimonials-contents {
+	max-width: 31.25rem;
+}
+.testimonilas-info h4 {
+	font-size: 1.2rem;
+}
+.testimonial-btn a {
+	font-size: 1.2rem;
+}
+.testimonial-btn a img {
+	width: 1.5rem;
+}
+}
+@media only screen and (max-width: 767px) {
+.testimonial-title {
+	font-size: 1.5rem;
+	margin-top: 1rem;
+	margin-bottom: 0;
+}
+.testimonials-contents p {
+	font-size: 0.938rem;
+	margin-top: 1rem;
+}
+.testimonilas-info {
+	margin-top: 1.3rem;
+}
+.testimonial-thumb-boxes {
+	margin-top: 2rem;
+	flex-wrap: wrap;
+	row-gap: 1.25rem;
+}
+.testimonial-thumb-image img {
+	width: 50px;
+	height: 51px;
+}
+.testimonial-btn a {
+	font-size: 1rem;
+}
+}
+/* Testimonial Css End */
+
+
+/* Contact Css Start */
+.contact-section {
+	padding-top: 355px;
+}
+.contact-inner {
+	display: grid;
+	grid-template-columns: 100%;
+}
+.contact-map, 
+.contact-form-wrap{
+	grid-row: 1; 
+	grid-column: 1;
+}
+.contact-form-wrap {
+	display: flex;
+	padding-top: 3.125rem;
+	padding-bottom: 3.125rem;
+	align-self: center;
+	column-gap: 7.063rem;
+}
+.contact-info {
+	padding-right: 12.5rem;
+}
+.contact-map img {
+	width: 100%;
+	height: 100%;
+}
+.contact-info h3 {
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: normal;
+  margin-top: 0.75rem;
+}
+.contact-info p {
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: capitalize;
+}
+.business-hour-bottom {
+	margin-top: 2.25rem;
+}
+.business-hour-bottom h4 {
+  color: rgba(255, 255, 255, 0.80);
+  font-weight: 700;
+  line-height: normal;
+}
+.contact-form {
+	background: #F8F8F8;
+	box-shadow: -4px 20px 60px 0 rgba(0, 0, 0, 0.15);
+	padding: 74px 68px;
+	position: relative;
+	top: -290px;
+	width: 622px;
+}
+.field-input-wrap {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  column-gap: 2.5rem;
+}
+.field label {
+  color: var(--black);
+  display: block;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: normal;
+  margin-bottom: 0.313rem;
+}
+.field input {
+	outline: none;
+	border: 0;
+	background-color: #E8E8E8;
+	height: 62px;
+	border-radius: 4px;
+	width: 100%;
+	padding: 0 20px;
+}
+.field:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.field textarea {
+	outline: none;
+	border: 0;
+	background-color: #E8E8E8;
+	border-radius: 4px;
+	width: 100%;
+	height: 188px;
+	padding: 20px;
+}
+.field input[type=submit] {
+  color: var(--white);
+  background-color: var(--arcia-secondary);
+  border-radius: 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: normal;
+  transition: 0.3s all ease;
+}
+.field input[type=submit]:hover {
+	background-color: var(--arcia-primary);
+}
+
+.business-hour-bottom ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.business-hour-bottom ul li {
+  color: #BEBEBE;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 0.625rem;
+}
+.business-hour-bottom ul li span {
+	padding-left: 17px;
+}
+@media only screen and (max-width: 1300px){
+.contact-form {
+	padding: 60px 48px;
+}
+.field input {
+	height: 55px;
+}
+}
+@media only screen and (max-width: 1199px) {
+.contact-section {
+	padding-top: 200px;
+}
+.contact-form-wrap {
+	column-gap: 3.125rem;
+}
+.contact-form {
+	top: -158px;
+}
+}
+@media only screen and (max-width: 991px) {
+.field-input-wrap {
+	grid-template-columns: repeat(1,1fr);
+}
+.contact-form {
+	padding: 50px 40px;
+}
+.contact-info {
+	padding-right: 0;
+}
+.contact-info h3 {
+	font-size: 1.5rem;
+}
+.field input[type="submit"] {
+	font-size: 1rem;
+}
+}
+@media only screen and (max-width: 767px) {
+	.contact-form-wrap {
+	display: block;
+	padding-left: 1.563rem;
+	padding-right: 1.563rem;
+}
+	.contact-form {
+	width: auto;
+}
+.field input {
+	height: 44px;
+}
+.field textarea {
+	height: 104px;
+}
+.contact-info {
+	margin-top: -100px;
+}
+.contact-info h3 {
+	font-size: 1.2rem;
+}
+.business-hour-bottom h4 {
+	font-size: 1.3rem;
+}
+.contact-info p {
+	font-size: 0.938rem;
+}
+.business-hour-bottom ul li {
+	font-size: 0.938rem;
+}
+.business-hour-bottom {
+	margin-top: 1.25rem;
+}
+}
+
+
+/* Contact Css End */
+
 
 
 

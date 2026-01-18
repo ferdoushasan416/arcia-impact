@@ -202,6 +202,3 @@ if( function_exists('acf_add_options_page') ) {
 	'parent_slug'  => 'theme-general-settings',
   ));
 }
-
-
-
