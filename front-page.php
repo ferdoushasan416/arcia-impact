@@ -6,7 +6,7 @@ get_header(); while(have_posts())  : the_post(); ?>
 
  <div class="hero-section">
     <div class="hero-inner">
-      <div class="hero-image">
+      <div class="hero-image media">
            <img src="<?php the_field('hero_image');?>" alt="">
        </div>
      <div class="hero-contents layout-padding">
@@ -104,7 +104,7 @@ get_header(); while(have_posts())  : the_post(); ?>
         <?php if ($arg->have_posts()) : ?>
         <?php while ($arg->have_posts()) : $arg->the_post(); ?>
         <a href="<?php the_permalink(); ?>" class="service-box">
-             <div class="service-thumb">
+             <div class="service-thumb media">
                 <?php the_post_thumbnail(); ?>
             </div>
             <h3><?php the_title(); ?></h3>
@@ -117,7 +117,7 @@ get_header(); while(have_posts())  : the_post(); ?>
 <section class="testimonials-section">
     <div class="testimonials-inner">
         <?php if(get_field('testimonials_image')): ?>
-            <div class="testimonials-image">
+            <div class="testimonials-image media">
                 <img src="<?php the_field('testimonials_image');?>" alt="">
             </div>
          <?php endif; ?>
@@ -140,7 +140,7 @@ get_header(); while(have_posts())  : the_post(); ?>
 
                 <div class="testimonial-thumb-boxes">
                 <?php endif; ?>
-                <div class="testimonial-thumb-image">
+                <div class="testimonial-thumb-image media">
                 <?php if( have_rows('testimonials_thumb') ): ?>
                 <?php while ( have_rows('testimonials_thumb') ) : the_row(); ?>
 
@@ -166,41 +166,16 @@ get_header(); while(have_posts())  : the_post(); ?>
 <section class="contact-section layout-padding">
     <div class="contact-inner">
         <?php if(get_field('map_image')): ?>
-        <div class="contact-map">     
+        <div class="contact-map media">     
            <img src="<?php the_field('map_image');?>" alt="">
         </div>
         <?php endif; ?>
        <div class="contact-form-wrap">
            <div class="contact-form">
-             <form action="post">
-                 <div class="field-input-wrap">
-                     <div class="field">
-                        <label for="name">Name</label>
-                         <input type="text" id="name">
-                     </div>
-                     <div class="field">
-                         <label for="company">Company</label>
-                         <input type="text" id="company">
-                     </div>
-                     <div class="field">
-                         <label for="phone">Phone</label>
-                         <input type="text" id="phone">
-                     </div>
-                     <div class="field">
-                         <label for="adress">Adress</label>
-                         <input type="text" id="adress">
-                     </div>
-                    </div>
-                    <div class="field-form-footer">
-                     <div class="field">
-                         <label for="message">Message</label>
-                         <textarea name="message" id="message"></textarea>
-                     </div>
-                        <div class="field">
-                            <input type="Submit">
-                        </div>
-                 </div>
-             </form>
+              <?php
+                $form_shortcode = get_field('contact_form');
+                ?>
+                <?php echo do_shortcode($form_shortcode); ?>
           </div>
         <div class="contact-info">
             <?php if(get_field('contact_subtitle')): ?>
@@ -248,7 +223,7 @@ get_header(); while(have_posts())  : the_post(); ?>
         <?php endwhile; else : endif; ?>
     </div>
 </section>
-
+<!-- Contact Info End -->
 </main><!-- #main -->
 
 <?php get_footer(); endwhile; ?>
