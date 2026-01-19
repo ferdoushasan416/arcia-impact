@@ -224,7 +224,30 @@ get_header(); while(have_posts())  : the_post(); ?>
        </div>
     </div>
 </section>
+<!-- Contact Section End -->
 
+<section class="contact-info-section layout-padding pb-50 pb-lg-135">
+    <div class="contact-info-inner">
+        <?php if( have_rows('conact_info_boxes') ): ?>
+        <?php while ( have_rows('conact_info_boxes') ) : the_row(); ?>
+          <div class="contact-info-box">
+            <?php if(get_sub_field('conatct_info_icon')): ?>
+            <div class="contact-info-icon">
+                <img src="<?php the_sub_field('conatct_info_icon');?>" alt="">
+            </div>
+            <?php endif; ?>
+            <div class="contact-info-description">
+                <?php if(get_sub_field('contact_info_title')): ?>
+                    <h4><?php the_sub_field('contact_info_title');?></h4>
+                <?php endif; ?>
+                <?php if(get_sub_field('contact_info_description')): ?>
+                    <?php the_sub_field('contact_info_description');?>
+                <?php endif; ?>
+             </div>    
+            </div>
+        <?php endwhile; else : endif; ?>
+    </div>
+</section>
 
 </main><!-- #main -->
 
